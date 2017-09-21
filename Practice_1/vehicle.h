@@ -8,6 +8,8 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
 
+#include <string>
+
 namespace vehicles {
     const int MAX_VEHICLES = 10;
     /*
@@ -32,7 +34,39 @@ namespace vehicles {
      * @brief Shows on terminal the info of a selected vehicle
      * @param v Vehicle struct object selected
      */
-    void showOnScreen ( Vehicle &v );
+    void showOnScreen ( const Vehicle &v );
+    
+    /**
+     * @brief fills a vector of Vehicle class until the users chooses to stop
+     * @param v Vector struct to be filled
+     * @param sizev size of the vector. Here it will be vehicles::MAX_SIZE
+     * @return Number of vehicles that have be filled
+     */
+    int fillVector ( Vehicle v[], const int sizev );
+    
+    /**
+     * @brief shows on screen vehicles in blocks of 5 vehicles, giving the option to show more, or to stop
+     * @param v Vehicle struct to be shown
+     * @param sizev Number of vehicles filled in the vector
+     */
+    void showOnScreen ( const Vehicle v[], const int sizev );
+    
+    /**
+     * @brief Calculates the position of the most expensive car
+     * @param v Vehicle struct to calculate from
+     * @param sizev number of vehicles filled in the vector
+     * @return position of the most expensive car
+     */
+    int maxPrice ( const Vehicle v[], const int sizev );
+    
+    /**
+     * @brief search for the position in the vector of a given plate
+     * @param plate given plate to search
+     * @param v Vehicle struct to be looked in
+     * @param sizev number of vehicles filled in the vectors
+     * @return 
+     */
+    int lookForPlate ( const std::string plate, const Vehicle v[], const int sizev );
 }
 
 
